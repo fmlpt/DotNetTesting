@@ -15,7 +15,44 @@ namespace TestingConsoleApplication
 
             // TestGrouping();
 
-            ParseDate2();
+            //ParseDate2();
+
+            //TestMoneyParse();
+
+            SortPeople();
+
+            Console.ReadLine();
+        }
+
+        private static void SortPeople()
+        {
+            var people = new List<Person>
+            {
+                new Person { Name="John", Gender="M", BirthDate = new DateTime(1965, 5, 8), Address= "Lexington Avenue" },
+                new Person { Name="Peter", Gender="M", BirthDate = new DateTime(1995, 12, 6), Address="130 Cool Street" },
+                new Person { Name="Kate", Gender="F", BirthDate = new DateTime(2000, 4, 3), Address = "26 Cool Street" },
+                new Person { Name="Phil", Gender="M", BirthDate = new DateTime(1980, 4, 25), Address = "Abercrombie Street Apts." },
+                new Person { Name="Giselle", Gender="F", BirthDate = new DateTime(1981, 5, 5), Address = "43 Cool Street" },
+            };
+
+            people.Sort(new PersonComparerByAddress());
+
+            people.ForEach(Console.WriteLine);
+        }
+
+        private static void TestMoneyParse()
+        {
+            var saNumberFormat = new  NumberFormatInfo
+            {
+                CurrencyDecimalSeparator = ".",
+                CurrencyGroupSeparator = " ",
+                CurrencySymbol = "R"
+            };
+
+            var value = "R1 237 500.00";
+
+            var result = decimal.Parse(value, NumberStyles.AllowCurrencySymbol | NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands, saNumberFormat);
+
         }
 
         private static void ParseDate2()
