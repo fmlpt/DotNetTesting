@@ -37,8 +37,6 @@ namespace TestingConsoleApplication
 
             people.Sort(new PersonComparerByAddress());
 
-
-
             people.ForEach(Console.WriteLine);
         }
 
