@@ -11,11 +11,17 @@ namespace TestingConsoleApplication
     {
         static void Main(string[] args)
         {
-            //ParseDate();
+            TestEnumeration();
+        }
 
-            // TestGrouping();
+        private static void TestEnumeration()
+        {
+            var enumerable = Enumerable.Range(1, 3);
 
-            ParseDate2();
+            foreach (var v in enumerable)
+            {
+                Console.WriteLine(v);
+            }
         }
 
         private static void ParseDate2()
