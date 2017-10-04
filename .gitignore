@@ -2,4 +2,6 @@ obj
 bin
 /.vs
 /TestingConsoleApplication/.vs/TestingConsoleApplication/v14/*.suo
-/TestingConsoleApplication/.vs
+/**/.vs
+/**/.idea
+/**/packages

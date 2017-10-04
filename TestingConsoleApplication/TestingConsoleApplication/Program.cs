@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.FormattableString;
 
 namespace TestingConsoleApplication
 {
@@ -11,7 +13,23 @@ namespace TestingConsoleApplication
     {
         static void Main(string[] args)
         {
-            TestEnumeration();
+            //UseInvariant();
+
+            TestTables();
+        }
+
+        private static void TestTables()
+        {
+            var dt = new DataTable();
+            
+            
+        }
+
+        private static void UseInvariant()
+        {
+            var test = 123;
+
+            Console.WriteLine(Invariant($"abc {test}"));
         }
 
         private static void TestEnumeration()
