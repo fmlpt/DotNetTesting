@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Linq.Dynamic;
 using System.Text;
 using System.Threading.Tasks;
 using static System.FormattableString;
@@ -15,15 +16,32 @@ namespace TestingConsoleApplication
         {
             //UseInvariant();
 
-            TestTables();
+            //TestDynamicQueryable();
+
+            //TestKeyValuePairNull();
         }
 
-        private static void TestTables()
+        private static void TestKeyValuePairNull()
         {
-            var dt = new DataTable();
-            
-            
+            var x = default(KeyValuePair<string, string>);
         }
+
+        private static void TestDynamicQueryable()
+        {
+            var people = new List<Person>
+            {
+                new Person {Name = "John", Gender = "M", BirthDate = new DateTime(1965, 5, 8)},
+                new Person {Name = "Peter", Gender = "M", BirthDate = new DateTime(1995, 12, 6)},
+                new Person {Name = "Kate", Gender = "F", BirthDate = new DateTime(2000, 4, 3)}
+            }.AsQueryable();
+
+
+            var orderedPeople = people.OrderBy("BirthDate asc").ToList();
+
+
+            orderedPeople.ForEach(person => Console.WriteLine($"{person.Name} - {person.BirthDate}"));
+        }
+
 
         private static void UseInvariant()
         {
